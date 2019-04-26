@@ -20,8 +20,8 @@ public class DeployRetrieveHelper {
 
     public MetadataConnection metadataConnection;
 
-    private String ZIP_FILE = "/Users/eugene/IdeaProjects/Validation/package" + Thread.currentThread().getName() + ".zip";
-    //private String ZIP_FILE = System.getProperty("user.dir") +  "/package" + Thread.currentThread().getName() + ".zip";
+    //private String ZIP_FILE = "/Users/eugene/IdeaProjects/Validation/package" + Thread.currentThread().getName() + ".zip";
+    private String ZIP_FILE = System.getProperty("user.dir") +  "/packageUser_" + Thread.currentThread().getName().substring(6) + ".zip";
     // manifest file that controls which components get retrieved
     //private String manifest_file = "/Users/eugene/IdeaProjects/Catalog Fix ACN/src/package.xml";
     private String manifest_file = System.getProperty("user.dir") +  "/package.xml";
@@ -38,7 +38,6 @@ public class DeployRetrieveHelper {
     public DeployRetrieveHelper(String username, String pass) {
         this.username = username;
         this.pass = pass;
-
         try {
             loginInOrg();
         } catch (ConnectionException ex) {

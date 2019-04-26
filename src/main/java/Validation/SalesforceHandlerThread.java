@@ -27,6 +27,7 @@ public class SalesforceHandlerThread extends Thread {
     public synchronized void start() {
         super.start();
         System.out.println(Thread.currentThread().getName() + ": >> Started thread: " + super.getName());
+
     }
 
     public static long getStartTime() {

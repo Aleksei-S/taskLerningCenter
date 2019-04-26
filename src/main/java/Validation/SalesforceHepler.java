@@ -33,7 +33,6 @@ public class SalesforceHepler {
 //        for (Integer count = 0; count < 50; count++) { // for stress test
 //            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> Test: " + count); // for stress test
             for (String item : GoogleHelper.userCreds.keySet()) {
-
                 SalesforceHandlerThread thread = new SalesforceHandlerThread(
                         item,
                         GoogleHelper.userCreds.get(item),

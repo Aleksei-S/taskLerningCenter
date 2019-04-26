@@ -6,8 +6,7 @@ public class ValidationTaskMain {
         System.out.println("Start main thread.");
         System.out.println("Start main thread.");
 
-        System.out.println("Working Directory = " +
-                System.getProperty("user.dir"));
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         GoogleHelper.callDocument();
 
