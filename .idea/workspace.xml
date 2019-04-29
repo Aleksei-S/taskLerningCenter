@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17007028-c946-4cae-8210-6ed6e50b45e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/ApexClassRule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/Rule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/sObjectRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/Fabrica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Validation/DeployRetrieveHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Validation/DeployRetrieveHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Validation/MetadataLoginUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Validation/MetadataLoginUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/Validation/SalesforceHepler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Validation/SalesforceHepler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Validation/TaskMapping.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/Validation/TaskMapping.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/package.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packageUser_ boreikod@lear.cen.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packageUser_ eugene.bagaev@gmail.com.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packageUser_ nastya@lear.cen.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packageUser_boreikod@lear.cen.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packageUser_eugene.bagaev@gmail.com.zip" beforeDir="false" afterPath="$PROJECT_DIR$/packageUser_eugene.bagaev@gmail.com.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packageUser_nastya@lear.cen.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Validation/DeployRetrieveHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validation/DeployRetrieveHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Validation/MetadataLoginUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validation/MetadataLoginUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Validation/Condition/sObjectRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validation/Condition/sObjectRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Validation/TaskMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Validation/TaskMapping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tokens/StoredCredential" beforeDir="false" afterPath="$PROJECT_DIR$/tokens/StoredCredential" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -43,40 +31,42 @@
     <session id="-567394000">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.30" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
-          <entry key="java" value="36" />
+          <entry key="java" value="46" />
           <entry key="json" value="1" />
           <entry key="object" value="1" />
-          <entry key="xml" value="2" />
+          <entry key="tld" value="1" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="36" />
+          <entry key="JAVA" value="46" />
           <entry key="JSON" value="1" />
           <entry key="SObject Type" value="1" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="881" />
-          <entry key="xml" value="14" />
+          <entry key="java" value="1658" />
+          <entry key="xml" value="236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="881" />
-          <entry key="XML" value="14" />
+          <entry key="JAVA" value="1658" />
+          <entry key="XML" value="236" />
         </counts>
       </usages-collector>
     </session>
@@ -86,33 +76,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Validation/ValidationTaskMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="204">
+              <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/sObjectRule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="47" selection-start-line="47" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="437">
+              <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4147#4148#0" expanded="true" />
-                <element signature="e#4174#4175#0" expanded="true" />
+                <element signature="e#1924#1925#0" expanded="true" />
+                <element signature="e#1951#1952#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java">
+        <entry file="file://$PROJECT_DIR$/tasks.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1252">
-              <caret line="88" column="2" lean-forward="true" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="2" />
+            <state relative-caret-position="289">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="17" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#names#1;n#Package#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -121,8 +111,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="10" selection-end-column="49" />
+            <state relative-caret-position="170">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="117" column="2" lean-forward="true" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHandlerThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Validation/DeployRetrieveHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="144" column="57" lean-forward="true" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Fabrica.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,8 +168,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Validation/TaskMapping.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="28" />
+            <state>
+              <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,6 +183,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Tag Library Descriptor" />
         <option value="Class" />
       </list>
     </option>
@@ -589,9 +628,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Validation/TaskMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/Validation/DeployRetrieveHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/Validation/Condition/ApexClassRule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java" />
         <option value="$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java" />
+        <option value="$PROJECT_DIR$/tasks.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Validation/Condition/sObjectRule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Validation/Condition/Fabrica.java" />
       </list>
     </option>
   </component>
@@ -601,11 +642,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="408" />
-    <option name="y" value="37" />
-    <option name="width" value="1250" />
-    <option name="height" value="1098" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="159" />
+    <option name="y" value="2" />
+    <option name="width" value="1591" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -614,7 +655,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -666,17 +706,23 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556496429594" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556578342715" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters.JSHint" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Leha\Desktop\Project\taskLerningCenter" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -723,12 +769,13 @@
       <workItem from="1556183162867" duration="1342000" />
       <workItem from="1556258839943" duration="7770000" />
       <workItem from="1556312423050" duration="22696000" />
-      <workItem from="1556413985359" duration="16131000" />
+      <workItem from="1556413985359" duration="16253000" />
+      <workItem from="1556553349949" duration="16849000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47939000" />
+    <option name="totallyTimeSpent" value="64910000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,10 +787,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="408" y="37" width="1250" height="1098" extended-state="1" />
+    <frame x="159" y="2" width="1591" height="1039" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.46222222" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23840627" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -752,7 +799,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.64534885" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37372592" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -762,12 +809,12 @@
       <window_info anchor="bottom" id="Build" order="9" weight="0.32555556" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="SOQL Query" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32918552" />
       <window_info anchor="bottom" id="Anonymous Apex" order="13" />
-      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3288889" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3280543" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="16" />
-      <window_info anchor="bottom" id="Messages" order="17" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="17" weight="0.3997735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -883,17 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/GoogleHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-498">
-          <caret line="66" column="52" lean-forward="true" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1577#1593#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Validation/ValidateByTestHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -916,24 +952,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.force.api/force-metadata-api/46.0.0/812f795c98a049a1015b8bea6dbcdaf6441c8b1b/force-metadata-api-46.0.0-sources.jar!/com/sforce/soap/metadata/MetadataConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="406" column="60" selection-start-line="406" selection-start-column="32" selection-end-line="406" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHandlerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -951,30 +973,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/DeployRetrieveHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1564">
-          <caret line="196" column="2" selection-start-line="196" selection-start-column="2" selection-end-line="196" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Rule.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/ApexClassRule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -989,48 +988,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rule.tld">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/GoogleHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1577#1593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Validation/TaskMapping.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/ValidationTaskMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="10" selection-end-column="49" />
+        <state>
+          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/ValidationTaskMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1252">
-          <caret line="88" column="2" lean-forward="true" selection-start-line="88" selection-start-column="2" selection-end-line="88" selection-end-column="2" />
+        <state relative-caret-position="204">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Condition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/DeployRetrieveHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="144" column="57" lean-forward="true" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHandlerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/SalesforceHepler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="117" column="2" lean-forward="true" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="n#names#1;n#Package#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/sObjectRule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="47" selection-start-line="47" selection-end-line="49" selection-end-column="29" />
+        <state relative-caret-position="437">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4147#4148#0" expanded="true" />
-            <element signature="e#4174#4175#0" expanded="true" />
+            <element signature="e#1924#1925#0" expanded="true" />
+            <element signature="e#1951#1952#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Validation/Condition/Fabrica.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

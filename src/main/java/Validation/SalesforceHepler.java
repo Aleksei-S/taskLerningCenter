@@ -15,8 +15,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
 
-
-
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class SalesforceHepler {
 
@@ -26,6 +32,7 @@ public class SalesforceHepler {
     private String tempPassword;
 
     public static String zip_file_for_read = "";
+    public static String zip_file_for_CREAD = System.getProperty("user.dir") +  "/tasks.xml";
     private static Map<String, List<String>> mapping = TaskMapping.CLASS_ACCOUNT;
 
     public SalesforceHepler(String username, String password) {
@@ -61,11 +68,26 @@ public class SalesforceHepler {
 
     public void processUser() {
 
+        try {
+            File xmlFile = new File(zip_file_for_CREAD);
+            System.out.println(" ZipFile ZipFile ZipFile ZipFile ZipFile");
+            System.out.println(zip_file_for_CREAD);
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(xmlFile);
+            // Выполнять нормализацию не обязательно, но рекомендуется
+            doc.getDocumentElement().normalize();
+            Fabrica FABRICA = new Fabrica(doc);
+
+
+        } catch (ParserConfigurationException | SAXException | IOException ex) {
+            System.out.println("ioEx.SFHelper.readZip: " + ex.getMessage());
+        }
+
         DeployRetrieveHelper instance = new DeployRetrieveHelper(tempUsername, tempPassword);
 //        instance.getMetadata();
-        instance.retrieveZip();
-
-           readZipFile();
+//        instance.retrieveZip();
+//        readZipFile();
     }
 
     private void readZipFile() {
@@ -79,14 +101,12 @@ public class SalesforceHepler {
                 System.out.println(e);
 
 
-                sObjectRule ff = new sObjectRule(e, file);
 
 
 
 
+//                sObjectRule ff = new sObjectRule(e, file);
 //                for (String item : mapping.keySet()) {
-//
-//
 //                    if (e.getName().contains(item) && !e.getName().contains(".xml")) {
 //                        System.out.println(Thread.currentThread().getName() + ". >> Found class: " + item);
 //

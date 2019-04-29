@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <names>
+        <userName>eugene@salesforce.com</userName>
+        <password>pass1234</password>
+        <CustomObjects>
+            <fullName>Project__c</fullName>
+            <fields name = "Description__c">
+                <fullName>Description__c</fullName>
+                <type>Text</type>
+                <required>false</required>
+            </fields>
+            <fields>
+                <fullName>Description__c</fullName>
+                <type>Text</type>
+                <required>false</required>
+            </fields>
+        </CustomObjects>
+        <CustomObjects>
+            <fullName>Lecture__c</fullName>
+            <fields>
+                <fullName>Time__c</fullName>
+                <type>DateTime</type>
+            </fields>
+        </CustomObjects>
+        <ApexClasses>
+            <fullName>CatsClass</fullName>
+            <methods>
+                <fullName>getCheto</fullName>
+            </methods>
+        </ApexClasses>
+    </names>
+    <names>
+        <userName>nastyua@salesforce.com</userName>
+        <password>qwe123</password>
+        <CustomObjects>
+            <fullName>Project__c</fullName>
+            <fields>
+                <fullName>Nana__c</fullName>
+                <type>Text</type>
+                <required>false</required>
+            </fields>
+        </CustomObjects>
+        <ApexClasses>
+            <fullName>Lecture__c</fullName>
+            <fields>
+                <fullName>Time__c</fullName>
+                <type>DateTime</type>
+            </fields>
+        </ApexClasses>
+    </names>
+</Package>

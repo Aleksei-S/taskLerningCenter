@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,97 +21,42 @@ import org.xml.sax.SAXException;
 
 
 public class sObjectRule implements  Rule {
-    public  List<Condition> conditions = new LinkedList<>();
-    public String nameSObject;;
-    public String nameRule = "CustomObject";
-    public static Map<String, List<String>> CLASS_ACCOUNT   = new HashMap<>();
 
-    public sObjectRule(ZipEntry fileXML, ZipFile file){
-        this.nameSObject = nameSObject;
-//        ZipEntry entry, String className, ZipFile file
-        InputStream stream = null;
-        try {
-            stream = file.getInputStream(fileXML);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
-            Document doc = documentBuilder.parse(stream);
-            // Получаем все узлы с именем "staff"
-            NodeList nodeList = doc.getElementsByTagName("fields");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                 // Выводим информацию по каждому из найденных элементов
-                     Node node = nodeList.item(i);
-                     System.out.println(node.getChildNodes());
-                     System.out.println("Текущий элемент: " + node.getNodeName());
-                for (int k = 0; k < node.getChildNodes().getLength(); k++) {
-                    System.out.println("kkkkkkkkkk");
-                    System.out.println(k);
-                }
-//                         if (Node.ELEMENT_NODE == node.getNodeType()) {
-////                             Element element = (Element) node;
-////                        }
-           }
-//            try (BufferedReader br = new BufferedReader(new InputStreamReader(stream))) {
-//                while (br.read() != -1) {
-//                    String currentLine = br.readLine();
-//                    if (!(currentLine == null)) {
-//                            System.out.println(". >> Line: " + currentLine);
-//                    }
-//                }
-//            } catch (IOException ex) {
-//                System.out.println(Thread.currentThread().getName() + ". >> ioEx.SFHelper.checkMeth.readClass: " + ex.getMessage());
-//            }
-        } catch (Exception  ioEx) {
-            System.out.println(Thread.currentThread().getName() + ". >> ioEx.sfHelper.checkMeth" + ioEx.getMessage());
+    public  List<Condition> conditions = new ArrayList<>();
+    public String nameFile = "";
+
+    public sObjectRule(String nameFile,  Element element){
+        this.nameFile = nameFile;
+        NodeList fields = element.getElementsByTagName("fields");
+        for (int i = 0; i < fields.getLength(); i++){
+            conditions.addAll(setFieldsRule(fields.item(i).getChildNodes()));
         }
-
-
-
-
-
-
-//        try {
-//            // Строим объектную модель исходного XML файла
-//            final File xmlFile = new File(fileXML);
-//            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//            DocumentBuilder db = dbf.newDocumentBuilder();
-//             Document doc = db.parse(xmlFile);
-//             // Выполнять нормализацию не обязательно, но рекомендуется
-//             doc.getDocumentElement().normalize();
-//             System.out.println("Корневой элемент: " + doc.getDocumentElement().getNodeName());
-//                System.out.println("============================");
-//
-//             // Получаем все узлы с именем "staff"
-//             NodeList nodeList = doc.getElementsByTagName("staff");
-//
-//                 for (int i = 0; i < nodeList.getLength(); i++) {
-//                 // Выводим информацию по каждому из найденных элементов
-//                     Node node = nodeList.item(i);
-//                     System.out.println();
-//                     System.out.println("Текущий элемент: " + node.getNodeName());
-//                         if (Node.ELEMENT_NODE == node.getNodeType()) {
-//                             Element element = (Element) node;
-//                        }
-//                 }
-//             } catch (ParserConfigurationException | SAXException | IOException ex) {
-//                     System.out.println(ex);
-//             }
     }
+//if("HtmlTag".equals(node.getNodeName()))
+//    String nodeContent=node.getAttributes().getNamedItem("car").getNodeValue()
+
+    public List<Condition> setFieldsRule (NodeList fieldsChild){
+        List<Condition> conds= new ArrayList<>();
+        for (int i = 0; i < fieldsChild.getLength(); i++){
+            Node node = fieldsChild.item(i);
+//            Element e = (Element)node;
+//            String name = e.getAttribute("name");
+            if (node.getNodeType() != Node.TEXT_NODE) {
+//                System.out.println("***************");
+//                System.out.println(node.getNodeName() + ":" + node.getChildNodes().item(0).getTextContent());
+                conds.add(new Condition( "fields",node.getNodeName(), node.getChildNodes().item(0).getTextContent()));
+            }
+        }
+        return conds;
+    }
+
+
 
     public Boolean checkCondition(){
         return true;
     }
 
 
-
-    //    static {
-//        // class **
-//        List<String> methods = new LinkedList<>();
-//        methods.add("accountsByState");
-//        CLASS_ACCOUNT.put("AccountUtils", methods);
-//
-//        // tests: Test Class => Class
-//        TEST_CLASSES.put("WebTest", "IntWebService");
-//    }
 
 
 
