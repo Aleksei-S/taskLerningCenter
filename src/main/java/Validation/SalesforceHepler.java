@@ -1,11 +1,22 @@
 package Validation;
 
+import org.hamcrest.Condition;
+import Validation.Condition.*;
 import java.io.*;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+
+
+
 
 public class SalesforceHepler {
 
@@ -29,28 +40,32 @@ public class SalesforceHepler {
             System.exit(1);
         }
 
-//         Stress test
-//        for (Integer count = 0; count < 50; count++) { // for stress test
-//            System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>> Test: " + count); // for stress test
-            for (String item : GoogleHelper.userCreds.keySet()) {
+
+        String firstKey = GoogleHelper.userCreds.keySet().iterator().next();
                 SalesforceHandlerThread thread = new SalesforceHandlerThread(
-                        item,
-                        GoogleHelper.userCreds.get(item),
-                        "User: " + item
+                        firstKey,
+                        GoogleHelper.userCreds.get(firstKey),
+                        "User: " + firstKey // NOT LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 );
-                thread.start();
-//            } // for stress test
-//            Thread.sleep(10000); // for stress test
-        }
+                     thread.start();
+
+//            for (String item : GoogleHelper.userCreds.keySet()) {
+//                SalesforceHandlerThread thread = new SalesforceHandlerThread(
+//                        item,
+//                        GoogleHelper.userCreds.get(item),
+//                        "User: " + item // NOT LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                );
+//                thread.start();
+//        }
     }
 
     public void processUser() {
 
         DeployRetrieveHelper instance = new DeployRetrieveHelper(tempUsername, tempPassword);
-
+//        instance.getMetadata();
         instance.retrieveZip();
 
-        readZipFile();
+           readZipFile();
     }
 
     private void readZipFile() {
@@ -60,15 +75,28 @@ public class SalesforceHepler {
             ZipFile file = new ZipFile(zip_file_for_read);
 
             for (ZipEntry e : Collections.list(file.entries())) {
+                System.out.println("eeee");
+                System.out.println(e);
 
-                for (String item : mapping.keySet()) {
 
-                    if (e.getName().contains(item) && !e.getName().contains(".xml")) {
-                        System.out.println(Thread.currentThread().getName() + ". >> Found class: " + item);
+                sObjectRule ff = new sObjectRule(e, file);
 
-                        checkMethodsInFile(e, item, file);
-                    }
-                }
+
+
+
+//                for (String item : mapping.keySet()) {
+//
+//
+//                    if (e.getName().contains(item) && !e.getName().contains(".xml")) {
+//                        System.out.println(Thread.currentThread().getName() + ". >> Found class: " + item);
+//
+//                        checkMethodsInFile(e, item, file);
+//                    }
+//
+//
+//
+//
+//                }
             }
 
         } catch (IOException ex) {

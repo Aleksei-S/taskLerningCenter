@@ -4,9 +4,9 @@
         <members>AccountUtils</members>
         <name>ApexClass</name>
     </types>
-    <!-- <types>
-        <members>CourseList</members>
-        <name>ApexPage</name>
-    </types> -->
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
     <version>45.0</version>
 </Package>

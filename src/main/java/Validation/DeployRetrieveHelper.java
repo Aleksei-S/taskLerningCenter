@@ -52,6 +52,9 @@ public class DeployRetrieveHelper {
         );
     }
 
+
+
+
     public void deployZip(boolean checkonly) throws Exception {
         byte zipBytes[] = readZipFile();
 
@@ -142,7 +145,77 @@ public class DeployRetrieveHelper {
             System.out.println(stringBuilder.toString());
         }
     }
+    public void getMetadata() {
+            try {
+                // Assuming that the SOAP binding has already been established.
+                DescribeMetadataResult res = metadataConnection.describeMetadata(API_VERSION);
+                StringBuffer sb = new StringBuffer();
+                if (res != null && res.getMetadataObjects().length > 0) {
 
+                            ListMetadataQuery query = new ListMetadataQuery();
+                           query.setType("ApexClass");
+                    query.setType("CustomObject");
+
+                    FileProperties[] listMeta = metadataConnection.listMetadata(new ListMetadataQuery[] {query}, API_VERSION);
+
+                            for (FileProperties fp : listMeta) {
+                                System.out.println(fp.getType());
+                                System.out.println(fp.toString());
+                                System.out.println(fp.getFullName());
+                                System.out.println(fp.getFileName());
+                            }
+
+
+                    for (DescribeMetadataObject obj : res.getMetadataObjects()) {
+//                        System.out.println(obj);
+                        System.out.println(obj.getXmlName());
+//                        if (obj.getXmlName() == "ApexClass"){
+//                            System.out.println(">>>>>>>>>>>>>>>");
+//                            System.out.println(obj);
+//                        }
+//                        if (obj.getXmlName() == "CustomObject"){
+//                            System.out.println(">>>>>>>>>>>>>>>");
+//                            System.out.println(obj);
+//                        }
+
+//                       String[] fff = obj.getChildXmlNames();
+//                        for (String rm : fff) {
+//                            System.out.println(">>>>>>>>>>>>>>>>>");
+//                            System.out.println(rm);
+//
+//                            ListMetadataQuery query = new ListMetadataQuery();
+//                            query.setType("rm");
+//                            FileProperties[] listMeta = metadataConnection.listMetadata(new ListMetadataQuery[] {query}, API_VERSION);
+//
+//                            for (FileProperties fp : listMeta) {
+//                                System.out.println(fp.getType());
+//                                System.out.println(fp.toString());
+//                                System.out.println(fp.getFullName());
+//                                System.out.println(fp.getFileName());
+//                            }
+//
+//
+//                        }
+//
+//                        if (obj.getXmlName() == "childXmlNames"){
+//                            System.out.println("childXmlNames");
+//                            System.out.println(obj);
+//                        }
+//                        ListMetadataResponse_element listMeta = metadataConnection.listMetadata(com.sforce.soap.metadata.ListMetadataQuery[] queries,double asOfVersion)
+
+//                        sb.append("***************************************************\n");
+//                        sb.append("XMLName: " + obj.getXmlName() + "\n");
+//                        sb.append("DirName: " + obj.getDirectoryName() + "\n");
+//                        sb.append("Suffix: " + obj.getSuffix() + "\n");
+                    }
+                } else {
+                    sb.append("Failed to obtain metadata types.");
+                }
+                System.out.println(sb.toString());
+            } catch (ConnectionException ce) {
+                ce.printStackTrace();
+            }
+    }
 
     public void retrieveZip() {
         try {

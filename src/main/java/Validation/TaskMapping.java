@@ -10,14 +10,31 @@ public class TaskMapping {
     public static Map<String, List<String>> CLASS_ACCOUNT   = new HashMap<>();
     public static Map<String, String> TEST_CLASSES          = new HashMap<>();
 
-    static {
-        // class **
-        List<String> methods = new LinkedList<>();
-        methods.add("accountsByState");
-        CLASS_ACCOUNT.put("AccountUtils", methods);
 
-        // tests: Test Class => Class
-        TEST_CLASSES.put("WebTest", "IntWebService");
+
+    public TaskMapping(String name, String password) {
+
     }
+
+
+    public static void getMetadata() {
+
+    }
+
+
+
+//    static {
+//        // class **
+//        List<String> methods = new LinkedList<>();
+//        methods.add("accountsByState");
+//        CLASS_ACCOUNT.put("AccountUtils", methods);
+//
+//        // tests: Test Class => Class
+//        TEST_CLASSES.put("WebTest", "IntWebService");
+//    }
+
+
+
+
 
 }
