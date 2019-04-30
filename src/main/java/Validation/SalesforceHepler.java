@@ -3,9 +3,7 @@ package Validation;
 import org.hamcrest.Condition;
 import Validation.Condition.*;
 import java.io.*;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -13,7 +11,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Enumeration;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,7 +30,7 @@ public class SalesforceHepler {
 
     public static String zip_file_for_read = "";
     public static String zip_file_for_CREAD = System.getProperty("user.dir") +  "/tasks.xml";
-    private static Map<String, List<String>> mapping = TaskMapping.CLASS_ACCOUNT;
+    private static Map<String, Rule> mapping = TaskMapping.CLASS_ACCOUNT;
 
     public SalesforceHepler(String username, String password) {
         this.tempUsername = username;
@@ -46,7 +43,6 @@ public class SalesforceHepler {
             System.out.println("No users creds found in Google File");
             System.exit(1);
         }
-
 
         String firstKey = GoogleHelper.userCreds.keySet().iterator().next();
                 SalesforceHandlerThread thread = new SalesforceHandlerThread(
@@ -68,26 +64,26 @@ public class SalesforceHepler {
 
     public void processUser() {
 
-        try {
-            File xmlFile = new File(zip_file_for_CREAD);
-            System.out.println(" ZipFile ZipFile ZipFile ZipFile ZipFile");
-            System.out.println(zip_file_for_CREAD);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(xmlFile);
-            // Выполнять нормализацию не обязательно, но рекомендуется
-            doc.getDocumentElement().normalize();
-            Fabrica FABRICA = new Fabrica(doc);
-
-
-        } catch (ParserConfigurationException | SAXException | IOException ex) {
-            System.out.println("ioEx.SFHelper.readZip: " + ex.getMessage());
-        }
+//        try {
+//            File xmlFile = new File(zip_file_for_CREAD);
+//            System.out.println(" ZipFile ZipFile ZipFile ZipFile ZipFile");
+//            System.out.println(zip_file_for_CREAD);
+//            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//            DocumentBuilder db = dbf.newDocumentBuilder();
+//            Document doc = db.parse(xmlFile);
+//            // Выполнять нормализацию не обязательно, но рекомендуется
+//            doc.getDocumentElement().normalize();
+////            Fabrica FABRICA = new Fabrica(doc);
+//
+//
+//        } catch (ParserConfigurationException | SAXException | IOException ex) {
+//            System.out.println("ioEx.SFHelper.readZip: " + ex.getMessage());
+//        }
 
         DeployRetrieveHelper instance = new DeployRetrieveHelper(tempUsername, tempPassword);
 //        instance.getMetadata();
-//        instance.retrieveZip();
-//        readZipFile();
+        instance.retrieveZip();
+        readZipFile();
     }
 
     private void readZipFile() {
@@ -97,10 +93,13 @@ public class SalesforceHepler {
             ZipFile file = new ZipFile(zip_file_for_read);
 
             for (ZipEntry e : Collections.list(file.entries())) {
-                System.out.println("eeee");
                 System.out.println(e);
 
-
+                for (String item : mapping.keySet()) {
+                    if (e.getName().contains(item) && !e.getName().contains(".xml")) {
+                        mapping.get(item).checkCondition(e);
+                    }
+                }
 
 
 
@@ -139,15 +138,15 @@ public class SalesforceHepler {
 
                     if (!(currentLine == null)) {
 
-                        for (String item : mapping.get(className)) {
-
-                            if (currentLine.contains(item) && currentLine != null) {
-                                System.out.println(Thread.currentThread().getName() + ". >> Found Method: " + item);
-                                System.out.println(Thread.currentThread().getName() + ". >> Line: " + currentLine);
-
-                                validateTasksByRunTests();
-                            }
-                        }
+//                        for (String item : mapping.get(className)) {
+//
+//                            if (currentLine.contains(item) && currentLine != null) {
+//                                System.out.println(Thread.currentThread().getName() + ". >> Found Method: " + item);
+//                                System.out.println(Thread.currentThread().getName() + ". >> Line: " + currentLine);
+//
+//                                validateTasksByRunTests();
+//                            }
+//                        }
                     }
                 }
 

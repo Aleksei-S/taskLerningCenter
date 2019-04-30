@@ -18,41 +18,41 @@ public class Fabrica {
 
     public Fabrica(Document doc){
 
-        NodeList nodeList = doc.getElementsByTagName("names");
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            Element element = (Element) node;
-//            System.out.println("Имя: " + element.getElementsByTagName("userName").item(0).getTextContent());
-//            System.out.println("passs: " + element.getElementsByTagName("password").item(0).getTextContent());
-            NodeList customObjects = element.getElementsByTagName("CustomObjects");
-            createCustomObjectsRules(customObjects);
-            NodeList apexClasses = element.getElementsByTagName("ApexClasses");
-            createApexClassesRules(apexClasses);
-        }
+//        NodeList nodeList = doc.getElementsByTagName("names");
+//        for (int i = 0; i < nodeList.getLength(); i++) {
+//            Node node = nodeList.item(i);
+//            Element element = (Element) node;
+////            System.out.println("Имя: " + element.getElementsByTagName("userName").item(0).getTextContent());
+////            System.out.println("passs: " + element.getElementsByTagName("password").item(0).getTextContent());
+//            NodeList customObjects = element.getElementsByTagName("CustomObjects");
+//            createCustomObjectsRules(customObjects);
+//            NodeList apexClasses = element.getElementsByTagName("ApexClasses");
+//            createApexClassesRules(apexClasses);
+//        }
 
     }
 
-    public Map<String,Rule> createCustomObjectsRules( NodeList customObjects){
-        Map<String, Rule> rulesObjects = new HashMap<>();
-        for (int i = 0; i < customObjects.getLength(); i++){
-            Node node = customObjects.item(i);
-            Element element = (Element) node;
-//            System.out.println("fullName customObjects: " + element.getElementsByTagName("fullName").item(0).getTextContent());
-            sObjectRule rulesObj = new sObjectRule(element.getElementsByTagName("fullName").item(0).getTextContent(), element);
-            rulesObjects.put(element.getElementsByTagName("fullName").item(0).getTextContent(), rulesObj);
-        }
-        return rulesObjects;
-    }
-
-        public Map<String,Rule> createApexClassesRules( NodeList apexClasses){
-            Map<String, Rule> rulesApexClasses = new HashMap<>();
-            for (int i = 0; i < apexClasses.getLength(); i++){
-                Node node = apexClasses.item(i);
-                Element element = (Element) node;
-//                System.out.println("fullName apexClasses: " + element.getElementsByTagName("fullName").item(0).getTextContent());
-            }
-            return rulesApexClasses;
-        }
+//    public Map<String,Rule> createCustomObjectsRules( NodeList customObjects){
+//        Map<String, Rule> rulesObjects = new HashMap<>();
+//        for (int i = 0; i < customObjects.getLength(); i++){
+//            Node node = customObjects.item(i);
+//            Element element = (Element) node;
+////            System.out.println("fullName customObjects: " + element.getElementsByTagName("fullName").item(0).getTextContent());
+//            sObjectRule rulesObj = new sObjectRule(element.getElementsByTagName("fullName").item(0).getTextContent(), element);
+//            rulesObjects.put(element.getElementsByTagName("fullName").item(0).getTextContent(), rulesObj);
+//        }
+//        return rulesObjects;
+//    }
+//
+//        public Map<String,Rule> createApexClassesRules( NodeList apexClasses){
+//            Map<String, Rule> rulesApexClasses = new HashMap<>();
+//            for (int i = 0; i < apexClasses.getLength(); i++){
+//                Node node = apexClasses.item(i);
+//                Element element = (Element) node;
+////                System.out.println("fullName apexClasses: " + element.getElementsByTagName("fullName").item(0).getTextContent());
+//            }
+//            return rulesApexClasses;
+//        }
 
 
 }
