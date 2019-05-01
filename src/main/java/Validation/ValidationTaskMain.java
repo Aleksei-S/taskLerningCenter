@@ -9,7 +9,8 @@ public class ValidationTaskMain {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         GoogleHelper.callDocument();
-
+        TaskMapping.generatePackageXML();
         SalesforceHepler.checkUsersResults();
+
     }
 }

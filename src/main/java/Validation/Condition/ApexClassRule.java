@@ -1,42 +1,35 @@
 package Validation.Condition;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.zip.ZipEntry;
 
 public class ApexClassRule implements  Rule {
 
-//    public String name;
-////    public static Map<String, List<String>> CLASS_ACCOUNT   = new HashMap<>();
-////    public static Map<String, String> TEST_CLASSES          = new HashMap<>();
+    public String nameClass;
+    public List<String> stringsForSearch;
 
-//    public ApexClassRule(String name){
-//        this.name = name;
-//    }
+    public ApexClassRule(String name,List<String> stringsForSearch){
+        this.nameClass = name;
+        this.stringsForSearch = stringsForSearch;
+    }
 
-    public  List<Results>  checkCondition(ZipEntry e){
+    public  List<Results>  checkCondition(String file){
         List<Results> results = new ArrayList<>();
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBB");
+        for (String str: stringsForSearch){
+            results.add(searchString(file, str));
+//                System.out.println(searchString(file, str).message);
+//                System.out.println(searchString(file, str).user);
+//                System.out.println(searchString(file, str).status);
+//                System.out.println(searchString(file, str).nameMetadata);
+        }
         return results;
     }
 
-
-
-
-
-    //    static {
-//        // class **
-//        List<String> methods = new LinkedList<>();
-//        methods.add("accountsByState");
-//        CLASS_ACCOUNT.put("AccountUtils", methods);
-//
-//        // tests: Test Class => Class
-//        TEST_CLASSES.put("WebTest", "IntWebService");
-//    }
-
-
-
+    public Results searchString(String file, String strSearch){
+        if (file.contains(strSearch) && file != null){
+            return new Results(nameClass, "Found method " + strSearch, Thread.currentThread().getName(), true);
+        }
+        return new Results(nameClass, "NOT Found method " + strSearch, Thread.currentThread().getName(), false);
+    }
 
 }

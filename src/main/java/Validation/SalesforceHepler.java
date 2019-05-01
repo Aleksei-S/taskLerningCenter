@@ -20,6 +20,10 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 public class SalesforceHepler {
 
@@ -30,7 +34,7 @@ public class SalesforceHepler {
 
     public static String zip_file_for_read = "";
     public static String zip_file_for_CREAD = System.getProperty("user.dir") +  "/tasks.xml";
-    private static Map<String, Rule> mapping = TaskMapping.CLASS_ACCOUNT;
+    private static Map<String, Rule> mapping = TaskMapping.METADATA_CHECK;
 
     public SalesforceHepler(String username, String password) {
         this.tempUsername = username;
@@ -44,22 +48,23 @@ public class SalesforceHepler {
             System.exit(1);
         }
 
-        String firstKey = GoogleHelper.userCreds.keySet().iterator().next();
-                SalesforceHandlerThread thread = new SalesforceHandlerThread(
-                        firstKey,
-                        GoogleHelper.userCreds.get(firstKey),
-                        "User: " + firstKey // NOT LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                );
-                     thread.start();
-
-//            for (String item : GoogleHelper.userCreds.keySet()) {
+//        String firstKey = GoogleHelper.userCreds.keySet().iterator().next();
 //                SalesforceHandlerThread thread = new SalesforceHandlerThread(
-//                        item,
-//                        GoogleHelper.userCreds.get(item),
-//                        "User: " + item // NOT LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                        firstKey,
+//                        GoogleHelper.userCreds.get(firstKey),
+//                        "User: " + firstKey // NOT LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //                );
-//                thread.start();
-//        }
+//                     thread.start();
+
+            for (String item : GoogleHelper.userCreds.keySet()) {
+                SalesforceHandlerThread thread = new SalesforceHandlerThread(
+                        item,
+                        GoogleHelper.userCreds.get(item),
+                        "User: " + item // NOT LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                );
+                thread.start();
+        }
+
     }
 
     public void processUser() {
@@ -83,89 +88,45 @@ public class SalesforceHepler {
         DeployRetrieveHelper instance = new DeployRetrieveHelper(tempUsername, tempPassword);
 //        instance.getMetadata();
         instance.retrieveZip();
-        readZipFile();
+        checkZipFile();
     }
 
-    private void readZipFile() {
+    private List<Results> checkZipFile() {
 
+        List<Results> results = new ArrayList<>();
         try {
-
             ZipFile file = new ZipFile(zip_file_for_read);
-
-            for (ZipEntry e : Collections.list(file.entries())) {
-                System.out.println(e);
-
-                for (String item : mapping.keySet()) {
-                    if (e.getName().contains(item) && !e.getName().contains(".xml")) {
-                        mapping.get(item).checkCondition(e);
+            for (String item : mapping.keySet()) {
+                Enumeration < ? extends ZipEntry > e = file.entries();
+                boolean fileFound = false;
+                while (e.hasMoreElements()) {
+                    ZipEntry entry = e.nextElement();
+                    if (entry.getName().contains(item) && !entry.getName().contains(".xml")) {
+                        fileFound = true;
+                        BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream(entry)));
+                        String allFile = "";
+                        String line = null;
+                        while ((line = br.readLine()) != null){
+                            allFile = allFile + line;
+                        }
+                        results.addAll(mapping.get(item).checkCondition(allFile));
+                        break;
                     }
                 }
-
-
-
-
-//                sObjectRule ff = new sObjectRule(e, file);
-//                for (String item : mapping.keySet()) {
-//                    if (e.getName().contains(item) && !e.getName().contains(".xml")) {
-//                        System.out.println(Thread.currentThread().getName() + ". >> Found class: " + item);
-//
-//                        checkMethodsInFile(e, item, file);
-//                    }
-//
-//
-//
-//
-//                }
+                // not found file
+                if (!fileFound){
+                    results.add(new Results(item, "NOT FOUND FILE " + item, Thread.currentThread().getName(), false));
+                }
             }
-
         } catch (IOException ex) {
             System.out.println("ioEx.SFHelper.readZip: " + ex.getMessage());
         }
-    }
-
-    private void checkMethodsInFile(ZipEntry entry, String className, ZipFile file) {
-
-        InputStream stream = null;
-
-        try {
-            stream = file.getInputStream(entry);
-
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(stream))) {
-
-                while (br.read() != -1) {
-
-                    String currentLine = br.readLine();
-
-                    if (!(currentLine == null)) {
-
-//                        for (String item : mapping.get(className)) {
-//
-//                            if (currentLine.contains(item) && currentLine != null) {
-//                                System.out.println(Thread.currentThread().getName() + ". >> Found Method: " + item);
-//                                System.out.println(Thread.currentThread().getName() + ". >> Line: " + currentLine);
-//
-//                                validateTasksByRunTests();
-//                            }
-//                        }
-                    }
-                }
-
-            } catch (IOException ex) {
-                System.out.println(Thread.currentThread().getName() + ". >> ioEx.SFHelper.checkMeth.readClass: " + ex.getMessage());
-            }
-
-        } catch (IOException ioEx) {
-            System.out.println(Thread.currentThread().getName() + ". >> ioEx.sfHelper.checkMeth" + ioEx.getMessage());
-        } finally {
-
-            try {
-                stream.close();
-            } catch (IOException ex) {
-                System.out.println(Thread.currentThread().getName() + ". >> Exception in closing ZipEntry Stream");
-            }
-
+        for (Results res : results) {
+                System.out.println(res.user + " " + res.status + " " + res.nameMetadata + " " +  res.message);
         }
+        return results;
     }
+
 
     private void validateTasksByRunTests() {
 
