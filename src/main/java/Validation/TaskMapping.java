@@ -96,7 +96,9 @@ public class TaskMapping {
         return results;
     }
 
+    public static void deleteFiles(){
 
+    }
 
 
 }
